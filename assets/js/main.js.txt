@@ -1,0 +1,55 @@
+(function () {
+  const year = document.getElementById("year");
+  if (year) year.textContent = new Date().getFullYear();
+
+  const form = document.getElementById("leadForm");
+  const success = document.getElementById("success");
+
+  const setError = (name, msg) => {
+    const el = document.querySelector(`[data-error-for="${name}"]`);
+    if (el) el.textContent = msg || "";
+  };
+
+  const validate = (data) => {
+    let ok = true;
+
+    const required = ["firstName", "lastName", "email", "phone", "zip"];
+    required.forEach((k) => {
+      if (!data.get(k) || String(data.get(k)).trim().length === 0) {
+        setError(k, "This field is required.");
+        ok = false;
+      } else {
+        setError(k, "");
+      }
+    });
+
+    const email = String(data.get("email") || "").trim();
+    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setError("email", "Please enter a valid email.");
+      ok = false;
+    }
+
+    const zip = String(data.get("zip") || "").trim();
+    if (zip && !/^[0-9]{5}(?:-[0-9]{4})?$/.test(zip)) {
+      setError("zip", "Please enter a valid ZIP code.");
+      ok = false;
+    }
+
+    return ok;
+  };
+
+  if (form) {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const data = new FormData(form);
+      if (!validate(data)) return;
+
+      // Placeholder: send to your endpoint/CRM here.
+      // Example: fetch("/api/lead", { method:"POST", body:data })
+
+      form.hidden = true;
+      if (success) success.hidden = false;
+    });
+  }
+})();

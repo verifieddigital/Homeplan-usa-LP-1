@@ -1,54 +1,59 @@
 (function () {
-  const year = document.getElementById("year");
-  if (year) year.textContent = new Date().getFullYear();
+  const modal = document.getElementById("zipModal");
+  const openBtns = document.querySelectorAll("[data-open-zip]");
+  const closeBtns = document.querySelectorAll("[data-close-zip]");
 
-  const form = document.getElementById("leadForm");
-  const success = document.getElementById("success");
+  const form = document.getElementById("zipForm");
+  const zipInput = document.getElementById("zipInput");
+  const zipError = document.getElementById("zipError");
 
-  const setError = (name, msg) => {
-    const el = document.querySelector(`[data-error-for="${name}"]`);
-    if (el) el.textContent = msg || "";
-  };
+  const success = document.getElementById("zipSuccess");
 
-  const validate = (data) => {
-    let ok = true;
+  function openModal() {
+    if (!modal) return;
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+    zipError.textContent = "";
+    if (success) success.hidden = true;
+    if (form) form.hidden = false;
+    setTimeout(() => zipInput && zipInput.focus(), 50);
+  }
 
-    const required = ["firstName", "lastName", "email", "phone", "zip"];
-    required.forEach((k) => {
-      if (!data.get(k) || String(data.get(k)).trim().length === 0) {
-        setError(k, "This field is required.");
-        ok = false;
-      } else {
-        setError(k, "");
-      }
-    });
+  function closeModal() {
+    if (!modal) return;
+    modal.classList.remove("is-open");
+    modal.setAttribute("aria-hidden", "true");
+  }
 
-    const email = String(data.get("email") || "").trim();
-    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      setError("email", "Please enter a valid email.");
-      ok = false;
-    }
+  openBtns.forEach(btn => btn.addEventListener("click", openModal));
+  closeBtns.forEach(btn => btn.addEventListener("click", closeModal));
 
-    const zip = String(data.get("zip") || "").trim();
-    if (zip && !/^[0-9]{5}(?:-[0-9]{4})?$/.test(zip)) {
-      setError("zip", "Please enter a valid ZIP code.");
-      ok = false;
-    }
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeModal();
+  });
 
-    return ok;
-  };
+  function isValidZip(zip) {
+    const z = String(zip || "").trim();
+    return /^[0-9]{5}(?:-[0-9]{4})?$/.test(z);
+  }
 
   if (form) {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
+      const zip = zipInput ? zipInput.value : "";
+      if (!isValidZip(zip)) {
+        zipError.textContent = "Please enter a valid ZIP code.";
+        return;
+      }
 
-      const data = new FormData(form);
-      if (!validate(data)) return;
+      zipError.textContent = "";
 
-      // Placeholder: send to your endpoint/CRM here.
-      // Example: fetch("/api/lead", { method:"POST", body:data })
+      // TODO: connect to your flow:
+      // 1) redirect: window.location.href = "/step2.html?zip=" + encodeURIComponent(zip);
+      // 2) webhook: fetch("YOUR_ENDPOINT", { method:"POST", headers:{...}, body: JSON.stringify({ zip }) })
+      // 3) Netlify Forms: use a real <form name="..."> and let Netlify capture it
 
-      form.hidden = true;
+      if (form) form.hidden = true;
       if (success) success.hidden = false;
     });
   }

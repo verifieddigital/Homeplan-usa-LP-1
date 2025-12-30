@@ -2,127 +2,226 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Exclusive Offer</title>
-  <meta name="description" content="Limited-time offer. Check eligibility in seconds." />
-
-  <!-- CSS -->
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Home Protection Offer</title>
+  <meta name="description" content="Check availability in your area. Quick eligibility check." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css" />
-
-  <!-- Pixels go here -->
-  <!--
-  <script>
-    fbq('track', 'PageView');
-  </script>
-  -->
 </head>
 
 <body>
-  <div class="wrap">
-    <header>
-      <div class="brand">
-        <div class="logo"></div>
-        <div>
-          <div>Brand Name</div>
-          <div class="tiny">Limited-time availability</div>
-        </div>
-      </div>
-      <div class="pill">Secure • Private • Fast</div>
-    </header>
-
-    <div class="grid">
-      <div class="hero">
-        <div class="hero-inner">
-          <div class="pill">Instant eligibility check</div>
-          <h1>Main headline goes here</h1>
-          <p class="lead">
-            Supporting copy goes here. Replace with your own content.
-          </p>
-
-          <div class="badges">
-            <span class="pill">No obligation</span>
-            <span class="pill">Under 60 seconds</span>
-            <span class="pill">Mobile-friendly</span>
-          </div>
-
-          <div class="cta-row">
-            <button class="btn" id="primaryCta">Check Eligibility</button>
-            <button class="btn secondary" id="scrollCta">Learn More</button>
-          </div>
-
-          <p class="fine">
-            By continuing, you agree to the terms and privacy policy.
-          </p>
-        </div>
-
-        <div class="hero-strip">
-          <div class="strip-item"><b>Step 1</b><br />Answer a few questions</div>
-          <div class="strip-item"><b>Step 2</b><br />View available options</div>
-          <div class="strip-item"><b>Step 3</b><br />Continue</div>
-        </div>
-      </div>
-
-      <aside class="card">
-        <h3>How it works</h3>
-
-        <div class="steps">
-          <div class="step">
-            <div class="num">1</div>
-            <p>Quick eligibility check</p>
-          </div>
-          <div class="step">
-            <div class="num">2</div>
-            <p>See available offers</p>
-          </div>
-          <div class="step">
-            <div class="num">3</div>
-            <p>Continue to next page</p>
-          </div>
-        </div>
-      </aside>
-    </div>
-
-    <footer>
-      <div>© <span id="year"></span> Brand Name. All rights reserved.</div>
-      <div class="tiny">
-        Disclaimer text goes here. Update for compliance.
-      </div>
-    </footer>
-  </div>
-
-  <!-- Sticky CTA -->
-  <div class="sticky" id="sticky">
-    <div class="sticky-inner">
-      <div>
-        <b>Ready to continue?</b>
-        <div class="tiny">Tap to proceed</div>
-      </div>
-      <button class="btn" id="stickyCta">Continue</button>
+  <!-- Top alert bar -->
+  <div class="top-alert">
+    <div class="container top-alert__inner">
+      <strong>ATTENTION:</strong> Only 9 Spots Left in Your Area This Month
     </div>
   </div>
 
-  <!-- JS -->
-  <script>
-    const DESTINATION_URL = "https://example.com";
+  <!-- Hero -->
+  <header class="hero" id="top">
+    <div class="hero__overlay"></div>
 
-    function go() {
-      window.location.href = DESTINATION_URL;
-    }
+    <div class="container hero__content">
+      <h1 class="hero__title">
+        Avoid <span class="t-red">$5,000+</span> Appliance Repair
+        Disasters For <span class="t-green">Less Than $2/day</span>
+      </h1>
 
-    document.getElementById("primaryCta").onclick = go;
-    document.getElementById("stickyCta").onclick = go;
+      <p class="hero__sub">
+        Get brand new appliances and systems when yours break down. No inspections. No age limits. Just complete protection.
+      </p>
 
-    document.getElementById("scrollCta").onclick = () => {
-      document.querySelector(".card").scrollIntoView({ behavior: "smooth" });
-    };
+      <div class="hero__cta">
+        <button class="btn btn--xl" data-open-zip>
+          Check Your Zip Code Now <span class="btn__arrow">→</span>
+        </button>
+      </div>
+    </div>
+  </header>
 
-    const sticky = document.getElementById("sticky");
-    window.addEventListener("scroll", () => {
-      sticky.classList.toggle("hide", window.scrollY < 120);
-    });
+  <!-- Section: Coverage -->
+  <section class="section section--white" id="coverage">
+    <div class="container">
+      <h2 class="h2">Complete Home Protection</h2>
+      <p class="muted center">Covers breakdowns on all major systems</p>
 
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
-  </script>
+      <div class="grid grid--3 mt-28">
+        <div class="icon-card">
+          <div class="icon-card__icon" aria-hidden="true">
+            <!-- HVAC icon -->
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M4 6h16v12H4V6Z" stroke="currentColor" stroke-width="1.8" />
+              <path d="M7 9h10M7 12h10M7 15h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="icon-card__title">HVAC Systems</div>
+          <div class="icon-card__desc">Air conditioning &amp; heating protection</div>
+        </div>
+
+        <div class="icon-card">
+          <div class="icon-card__icon" aria-hidden="true">
+            <!-- Plumbing icon -->
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M8 3v6a4 4 0 0 0 4 4h4v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              <path d="M6 3h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              <path d="M14 21h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="icon-card__title">Plumbing</div>
+          <div class="icon-card__desc">Pipes, water heaters &amp; fixtures</div>
+        </div>
+
+        <div class="icon-card">
+          <div class="icon-card__icon" aria-hidden="true">
+            <!-- Electrical icon -->
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M13 2 5 14h7l-1 8 8-12h-7l1-8Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="icon-card__title">Electrical</div>
+          <div class="icon-card__desc">Wiring, panels &amp; major components</div>
+        </div>
+
+        <div class="icon-card">
+          <div class="icon-card__icon" aria-hidden="true">
+            <!-- Kitchen icon -->
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M6 4h12v16H6V4Z" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M9 7h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              <path d="M9 12h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              <path d="M9 17h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="icon-card__title">Kitchen Appliances</div>
+          <div class="icon-card__desc">Fridge, stove, dishwasher &amp; more</div>
+        </div>
+
+        <div class="icon-card">
+          <div class="icon-card__icon" aria-hidden="true">
+            <!-- Water heater icon -->
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M8 3h8a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3Z" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M9 8h6M9 12h6M9 16h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="icon-card__title">Water Heater</div>
+          <div class="icon-card__desc">Tank &amp; tankless systems covered</div>
+        </div>
+
+        <div class="icon-card">
+          <div class="icon-card__icon" aria-hidden="true">
+            <!-- Garage icon -->
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M3 10 12 3l9 7v11H3V10Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              <path d="M7 21v-7h10v7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="icon-card__title">Garage Door</div>
+          <div class="icon-card__desc">Opener &amp; mechanical components</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Testimonials -->
+  <section class="section section--light" id="testimonials">
+    <div class="container">
+      <h2 class="h2">Join Thousands of Protected Homeowners</h2>
+      <p class="muted center">Real savings from real people</p>
+
+      <div class="grid grid--3 mt-28">
+        <article class="quote-card">
+          <p class="quote-card__text">
+            “I got referred this service from my brother and was served in minutes! The team gave me brand new appliances in one day.”
+          </p>
+          <div class="quote-card__meta">
+            <div class="quote-card__name">Sarah M.</div>
+            <div class="quote-card__sub">Phoenix, AZ • Verified Buyer</div>
+          </div>
+        </article>
+
+        <article class="quote-card">
+          <p class="quote-card__text">
+            “I can’t believe this upgrade service actually exists. Qualified in minutes and got a new fridge and washing machine.”
+          </p>
+          <div class="quote-card__meta">
+            <div class="quote-card__name">James R.</div>
+            <div class="quote-card__sub">Austin, TX • Verified Buyer</div>
+          </div>
+        </article>
+
+        <article class="quote-card">
+          <p class="quote-card__text">
+            “I needed urgent replacement and I’m so glad I signed up before my old stove gave out. I got my new stove almost immediately.”
+          </p>
+          <div class="quote-card__meta">
+            <div class="quote-card__name">Linda K.</div>
+            <div class="quote-card__sub">Orlando, FL • Verified Buyer</div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="section section--white" id="final">
+    <div class="container">
+      <h2 class="h2">Don’t Wait for the Next Breakdown</h2>
+      <p class="muted center">
+        Limited spots available this month. Lock in your rate before coverage fills up in your area.
+      </p>
+
+      <div class="center mt-22">
+        <button class="btn btn--lg" data-open-zip>
+          Check Your Zip Code Now <span class="btn__arrow">→</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__small">
+        Protected Coverage Since 2010 • Nationwide Service • A+ Rated
+      </div>
+    </div>
+  </footer>
+
+  <!-- Zip modal -->
+  <div class="modal" id="zipModal" aria-hidden="true">
+    <div class="modal__backdrop" data-close-zip></div>
+    <div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="zipTitle">
+      <button class="modal__close" type="button" aria-label="Close" data-close-zip>✕</button>
+
+      <h3 class="modal__title" id="zipTitle">Check Availability</h3>
+      <p class="modal__sub">Enter your ZIP code to continue.</p>
+
+      <form id="zipForm" class="modal__form" novalidate>
+        <label class="field">
+          <span class="field__label">ZIP Code</span>
+          <input id="zipInput" name="zip" type="text" inputmode="numeric" maxlength="10" placeholder="e.g. 90210" required />
+          <span class="field__error" id="zipError"></span>
+        </label>
+
+        <button class="btn btn--lg btn--full" type="submit">
+          Continue <span class="btn__arrow">→</span>
+        </button>
+
+        <p class="fine">
+          By continuing, you agree to receive communications related to your request.
+        </p>
+      </form>
+
+      <div id="zipSuccess" class="modal__success" hidden>
+        <h4>Thanks!</h4>
+        <p>We’ve received your ZIP. Next step can be your full form or redirect to your offer flow.</p>
+        <button class="btn btn--lg btn--full" type="button" data-close-zip>Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
 </body>
 </html>

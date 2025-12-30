@@ -186,7 +186,7 @@ body{
   cursor: pointer;
   background: var(--red);
   color: #fff;
-  font-weight: 900;
+  font-weight: 700;
   border-radius: 999px;
   padding: 18px 28px;
   box-shadow: 0 18px 40px rgba(255,43,43,.35);
@@ -196,7 +196,7 @@ body{
 .btn:active{ transform: translateY(1px) scale(.99); }
 
 .btn--lg{ padding: 16px 26px; font-size: 16px; }
-.btn--xl{ padding: 22px 34px; font-size: 18px; min-width: min(560px, 92vw); }
+.btn--xl{ padding: 22px 34px; font-size: 22px; min-width: min(560px, 92vw); }
 .btn--full{ width:100%; }
 
 .btn__arrow{ margin-left: 10px; font-weight: 900; }
@@ -276,5 +276,6 @@ body{
   .hero{ min-height: 540px; }
   .btn--xl{ min-width: auto; width: 92vw; }
 }
+
 
 

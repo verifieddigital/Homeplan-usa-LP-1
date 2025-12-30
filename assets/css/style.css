@@ -118,6 +118,7 @@ body{
   text-align:center;
   font-size: 28px;
   letter-spacing: -0.3px;
+  color: #e49f75;
 }
 .muted{
   margin: 10px 0 0;
@@ -295,6 +296,7 @@ body{
   .hero{ min-height: 540px; }
   .btn--xl{ min-width: auto; width: 92vw; }
 }
+
 
 
 

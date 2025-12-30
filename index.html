@@ -2,168 +2,155 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Exclusive American Offers</title>
-  <meta name="description" content="Limited-time offer. Quick form, fast confirmation." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Exclusive Offer</title>
+  <meta name="description" content="Limited-time offer. Check eligibility in seconds." />
 </head>
 <body>
-  <header class="topbar">
-    <div class="container topbar__inner">
+  <div class="wrap">
+    <header>
       <div class="brand">
-        <div class="brand__mark" aria-hidden="true"></div>
-        <div class="brand__text">
-          <div class="brand__name">Exclusive American Offers</div>
-          <div class="brand__sub">Limited availability</div>
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <div>Brand Name</div>
+          <div class="tiny">Limited-time availability</div>
         </div>
       </div>
-      <a class="topbar__cta" href="#form">Get Started</a>
-    </div>
-  </header>
+      <div class="pill">Secure • Private • Fast</div>
+    </header>
 
-  <main>
-    <section class="hero">
-      <div class="container hero__grid">
-        <div class="hero__copy">
-          <p class="pill">Trusted • Fast • Secure</p>
-          <h1>Claim today’s limited-time offer in under 60 seconds.</h1>
-          <p class="subhead">
-            Submit the quick form to check availability and receive next steps.
-          </p>
+    <div class="grid">
+      <div class="hero">
+        <div class="hero-inner">
+          <div class="pill">New update: instant eligibility check</div>
+          <h1>Headline that matches your offer value</h1>
+          <p class="lead">Short supporting line that builds trust and sets expectation. Swap this copy anytime.</p>
 
-          <ul class="checks">
-            <li>Simple eligibility check</li>
-            <li>No long phone calls required</li>
-            <li>Get confirmation quickly</li>
-          </ul>
-
-          <div class="hero__buttons">
-            <a class="btn btn--primary" href="#form">Check Availability</a>
-            <a class="btn btn--ghost" href="#details">Learn More</a>
+          <div class="badges">
+            <span class="pill">No obligation</span>
+            <span class="pill">Takes under 60 seconds</span>
+            <span class="pill">Mobile-friendly</span>
           </div>
 
-          <p class="fineprint">
-            By continuing, you agree to receive communications related to your request.
-          </p>
+          <div class="cta-row">
+            <button class="btn" id="primaryCta">Check Eligibility</button>
+            <button class="btn secondary" id="scrollCta">Learn More</button>
+          </div>
+
+          <p class="fine">By continuing, you agree to our terms and privacy policy. Results may vary.</p>
         </div>
 
-        <aside class="card" id="form" aria-label="Lead form">
-          <div class="card__header">
-            <h2>Start Here</h2>
-            <p>Fill out the form and we’ll confirm your next step.</p>
-          </div>
-
-          <form class="form" id="leadForm" novalidate>
-            <div class="field">
-              <label for="firstName">First name</label>
-              <input id="firstName" name="firstName" type="text" autocomplete="given-name" required />
-              <small class="error" data-error-for="firstName"></small>
-            </div>
-
-            <div class="field">
-              <label for="lastName">Last name</label>
-              <input id="lastName" name="lastName" type="text" autocomplete="family-name" required />
-              <small class="error" data-error-for="lastName"></small>
-            </div>
-
-            <div class="field">
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" autocomplete="email" required />
-              <small class="error" data-error-for="email"></small>
-            </div>
-
-            <div class="field">
-              <label for="phone">Phone</label>
-              <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(555) 555-5555" required />
-              <small class="error" data-error-for="phone"></small>
-            </div>
-
-            <div class="field">
-              <label for="zip">ZIP Code</label>
-              <input id="zip" name="zip" type="text" inputmode="numeric" autocomplete="postal-code" maxlength="10" required />
-              <small class="error" data-error-for="zip"></small>
-            </div>
-
-            <button class="btn btn--primary btn--full" type="submit">
-              Continue
-            </button>
-
-            <p class="trust">
-              <span class="dot" aria-hidden="true"></span>
-              Your information is used to process your request.
-            </p>
-          </form>
-
-          <div class="success" id="success" hidden>
-            <h3>Thanks! Your request was received.</h3>
-            <p>We’ll follow up with the next steps shortly.</p>
-            <a class="btn btn--primary btn--full" href="#details">Back to page</a>
-          </div>
-        </aside>
+        <div class="hero-strip">
+          <div class="strip-item"><b>Step 1</b><br>Answer a few questions</div>
+          <div class="strip-item"><b>Step 2</b><br>See available options</div>
+          <div class="strip-item"><b>Step 3</b><br>Continue to the next page</div>
+        </div>
       </div>
-    </section>
 
-    <section class="section" id="details">
-      <div class="container">
-        <h2 class="section__title">How it works</h2>
+      <aside class="card">
+        <h3>How it works</h3>
         <div class="steps">
           <div class="step">
-            <div class="step__num">1</div>
-            <h3>Submit the form</h3>
-            <p>Provide basic contact info so we can check availability.</p>
+            <div class="num">1</div>
+            <div>
+              <b>Quick check</b>
+              <p>Replace with your short explanation of what happens next.</p>
+            </div>
           </div>
           <div class="step">
-            <div class="step__num">2</div>
-            <h3>Confirm eligibility</h3>
-            <p>We verify details and confirm the best next step for you.</p>
+            <div class="num">2</div>
+            <div>
+              <b>Match</b>
+              <p>Add trust language here. Keep it simple and specific.</p>
+            </div>
           </div>
           <div class="step">
-            <div class="step__num">3</div>
-            <h3>Receive next steps</h3>
-            <p>Get guidance and instructions based on your submission.</p>
+            <div class="num">3</div>
+            <div>
+              <b>Continue</b>
+              <p>Redirect on click (recommended) or auto-redirect if needed.</p>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <section class="section section--muted">
-      <div class="container">
-        <h2 class="section__title">Why people choose this</h2>
-        <div class="grid3">
-          <div class="feature">
-            <h3>Fast</h3>
-            <p>Optimized for quick completion and fast load times.</p>
-          </div>
-          <div class="feature">
-            <h3>Simple</h3>
-            <p>Minimal fields, clear steps, and easy navigation.</p>
-          </div>
-          <div class="feature">
-            <h3>Secure</h3>
-            <p>HTTPS by default when deployed on Netlify.</p>
-          </div>
+        <div class="checks">
+          <div class="check"><span class="dot">✓</span><span>No WordPress needed</span></div>
+          <div class="check"><span class="dot">✓</span><span>Works on any standard hosting</span></div>
+          <div class="check"><span class="dot">✓</span><span>Easy to rebrand</span></div>
         </div>
-      </div>
-    </section>
+      </aside>
+    </div>
 
-    <footer class="footer">
-      <div class="container footer__grid">
-        <div>
-          <div class="brand__name">Exclusive American Offers</div>
-          <p class="footer__small">© <span id="year"></span> All rights reserved.</p>
-        </div>
-        <div class="footer__links">
-          <a href="#" onclick="return false;">Privacy</a>
-          <a href="#" onclick="return false;">Terms</a>
-          <a href="#" onclick="return false;">Contact</a>
-        </div>
+    <div class="section" id="more">
+      <div class="card">
+        <h3>Why people use this</h3>
+        <p class="tiny">Add your 3–5 bullet benefits here.</p>
+        <ul class="tiny">
+          <li>Benefit #1 (clear and specific)</li>
+          <li>Benefit #2 (ties to the offer)</li>
+          <li>Benefit #3 (reduces friction)</li>
+        </ul>
       </div>
+
+      <div class="card faq">
+        <h3>FAQ</h3>
+        <details>
+          <summary>How long does it take?</summary>
+          <p>Usually under a minute. You can adjust copy and steps anytime.</p>
+        </details>
+        <details>
+          <summary>Is it secure?</summary>
+          <p>Use your privacy language here. Keep it consistent with compliance.</p>
+        </details>
+        <details>
+          <summary>What happens when I click the button?</summary>
+          <p>Redirect to your next page or client landing page.</p>
+        </details>
+      </div>
+    </div>
+
+    <footer>
+      <div>© <span id="year"></span> Brand Name. All rights reserved.</div>
+      <div>Disclaimer: This is a promotional page. Not affiliated with any government agency. Replace with your compliant footer language.</div>
     </footer>
-  </main>
+  </div>
 
-  <script src="assets/js/main.js"></script>
+  <div class="sticky" id="sticky">
+    <div class="sticky-inner">
+      <div class="left">
+        <div><b>Ready to continue?</b></div>
+        <div class="tiny">Tap to check eligibility</div>
+      </div>
+      <button class="btn" id="stickyCta">Continue</button>
+    </div>
+  </div>
+
+  <script>
+    // Replace with your destination URL
+    const DESTINATION_URL = "https://example.com";
+
+    // CTA behavior: recommended to redirect on click (more compliant + user intent)
+    function go(){
+      window.location.href = DESTINATION_URL;
+    }
+
+    document.getElementById('primaryCta').addEventListener('click', go);
+    document.getElementById('stickyCta').addEventListener('click', go);
+
+    // Smooth scroll
+    document.getElementById('scrollCta').addEventListener('click', () => {
+      document.getElementById('more').scrollIntoView({behavior:'smooth'});
+    });
+
+    // Hide sticky when near top (optional)
+    const sticky = document.getElementById('sticky');
+    const toggleSticky = () => {
+      sticky.classList.toggle('hide', window.scrollY < 120);
+    };
+    window.addEventListener('scroll', toggleSticky, {passive:true});
+    toggleSticky();
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

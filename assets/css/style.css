@@ -73,7 +73,7 @@ body{
   text-shadow: 0 8px 30px rgba(0,0,0,.35);
 }
 .hero__sub{
-  margin: 14px auto 0;
+  margin: 30px auto 0;
   max-width: 720px;
   font-size: 20px;
   line-height: 1.6;
@@ -276,6 +276,7 @@ body{
   .hero{ min-height: 540px; }
   .btn--xl{ min-width: auto; width: 92vw; }
 }
+
 
 
 

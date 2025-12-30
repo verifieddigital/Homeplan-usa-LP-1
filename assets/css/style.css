@@ -50,10 +50,16 @@ body{
 }
 .top-alert strong{ font-weight: 700; }
 
-.hero-logo {
-  text-align:center;
-  width: 250px;
-  padding-bottom: 30px;
+.hero-logo{
+  display: flex;
+  justify-content: center;
+  margin: 0 auto 30px auto;
+}
+
+.hero-logo img{
+  width: 250px;     /* control logo size here */
+  max-width: 100%;
+  height: auto;
 }
   
 .hero{
@@ -289,6 +295,7 @@ body{
   .hero{ min-height: 540px; }
   .btn--xl{ min-width: auto; width: 92vw; }
 }
+
 
 
 

@@ -50,6 +50,12 @@ body{
 }
 .top-alert strong{ font-weight: 700; }
 
+.hero-logo {
+  text-align:center;
+  width: 250px;
+  padding-bottom: 30px;
+}
+  
 .hero{
   position: relative;
   min-height: 520px;
@@ -283,6 +289,7 @@ body{
   .hero{ min-height: 540px; }
   .btn--xl{ min-width: auto; width: 92vw; }
 }
+
 
 
 

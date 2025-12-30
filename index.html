@@ -5,12 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Exclusive Offer</title>
   <meta name="description" content="Limited-time offer. Check eligibility in seconds." />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <!-- Pixels go here -->
+  <!--
+  <script>
+    fbq('track', 'PageView');
+  </script>
+  -->
 </head>
+
 <body>
   <div class="wrap">
     <header>
       <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
+        <div class="logo"></div>
         <div>
           <div>Brand Name</div>
           <div class="tiny">Limited-time availability</div>
@@ -22,13 +33,15 @@
     <div class="grid">
       <div class="hero">
         <div class="hero-inner">
-          <div class="pill">New update: instant eligibility check</div>
-          <h1>Headline that matches your offer value</h1>
-          <p class="lead">Short supporting line that builds trust and sets expectation. Swap this copy anytime.</p>
+          <div class="pill">Instant eligibility check</div>
+          <h1>Main headline goes here</h1>
+          <p class="lead">
+            Supporting copy goes here. Replace with your own content.
+          </p>
 
           <div class="badges">
             <span class="pill">No obligation</span>
-            <span class="pill">Takes under 60 seconds</span>
+            <span class="pill">Under 60 seconds</span>
             <span class="pill">Mobile-friendly</span>
           </div>
 
@@ -37,120 +50,79 @@
             <button class="btn secondary" id="scrollCta">Learn More</button>
           </div>
 
-          <p class="fine">By continuing, you agree to our terms and privacy policy. Results may vary.</p>
+          <p class="fine">
+            By continuing, you agree to the terms and privacy policy.
+          </p>
         </div>
 
         <div class="hero-strip">
-          <div class="strip-item"><b>Step 1</b><br>Answer a few questions</div>
-          <div class="strip-item"><b>Step 2</b><br>See available options</div>
-          <div class="strip-item"><b>Step 3</b><br>Continue to the next page</div>
+          <div class="strip-item"><b>Step 1</b><br />Answer a few questions</div>
+          <div class="strip-item"><b>Step 2</b><br />View available options</div>
+          <div class="strip-item"><b>Step 3</b><br />Continue</div>
         </div>
       </div>
 
       <aside class="card">
         <h3>How it works</h3>
+
         <div class="steps">
           <div class="step">
             <div class="num">1</div>
-            <div>
-              <b>Quick check</b>
-              <p>Replace with your short explanation of what happens next.</p>
-            </div>
+            <p>Quick eligibility check</p>
           </div>
           <div class="step">
             <div class="num">2</div>
-            <div>
-              <b>Match</b>
-              <p>Add trust language here. Keep it simple and specific.</p>
-            </div>
+            <p>See available offers</p>
           </div>
           <div class="step">
             <div class="num">3</div>
-            <div>
-              <b>Continue</b>
-              <p>Redirect on click (recommended) or auto-redirect if needed.</p>
-            </div>
+            <p>Continue to next page</p>
           </div>
-        </div>
-
-        <div class="checks">
-          <div class="check"><span class="dot">✓</span><span>No WordPress needed</span></div>
-          <div class="check"><span class="dot">✓</span><span>Works on any standard hosting</span></div>
-          <div class="check"><span class="dot">✓</span><span>Easy to rebrand</span></div>
         </div>
       </aside>
     </div>
 
-    <div class="section" id="more">
-      <div class="card">
-        <h3>Why people use this</h3>
-        <p class="tiny">Add your 3–5 bullet benefits here.</p>
-        <ul class="tiny">
-          <li>Benefit #1 (clear and specific)</li>
-          <li>Benefit #2 (ties to the offer)</li>
-          <li>Benefit #3 (reduces friction)</li>
-        </ul>
-      </div>
-
-      <div class="card faq">
-        <h3>FAQ</h3>
-        <details>
-          <summary>How long does it take?</summary>
-          <p>Usually under a minute. You can adjust copy and steps anytime.</p>
-        </details>
-        <details>
-          <summary>Is it secure?</summary>
-          <p>Use your privacy language here. Keep it consistent with compliance.</p>
-        </details>
-        <details>
-          <summary>What happens when I click the button?</summary>
-          <p>Redirect to your next page or client landing page.</p>
-        </details>
-      </div>
-    </div>
-
     <footer>
       <div>© <span id="year"></span> Brand Name. All rights reserved.</div>
-      <div>Disclaimer: This is a promotional page. Not affiliated with any government agency. Replace with your compliant footer language.</div>
+      <div class="tiny">
+        Disclaimer text goes here. Update for compliance.
+      </div>
     </footer>
   </div>
 
+  <!-- Sticky CTA -->
   <div class="sticky" id="sticky">
     <div class="sticky-inner">
-      <div class="left">
-        <div><b>Ready to continue?</b></div>
-        <div class="tiny">Tap to check eligibility</div>
+      <div>
+        <b>Ready to continue?</b>
+        <div class="tiny">Tap to proceed</div>
       </div>
       <button class="btn" id="stickyCta">Continue</button>
     </div>
   </div>
 
+  <!-- JS -->
   <script>
-    // Replace with your destination URL
     const DESTINATION_URL = "https://example.com";
 
-    // CTA behavior: recommended to redirect on click (more compliant + user intent)
-    function go(){
+    function go() {
       window.location.href = DESTINATION_URL;
     }
 
-    document.getElementById('primaryCta').addEventListener('click', go);
-    document.getElementById('stickyCta').addEventListener('click', go);
+    document.getElementById("primaryCta").onclick = go;
+    document.getElementById("stickyCta").onclick = go;
 
-    // Smooth scroll
-    document.getElementById('scrollCta').addEventListener('click', () => {
-      document.getElementById('more').scrollIntoView({behavior:'smooth'});
+    document.getElementById("scrollCta").onclick = () => {
+      document.querySelector(".card").scrollIntoView({ behavior: "smooth" });
+    };
+
+    const sticky = document.getElementById("sticky");
+    window.addEventListener("scroll", () => {
+      sticky.classList.toggle("hide", window.scrollY < 120);
     });
 
-    // Hide sticky when near top (optional)
-    const sticky = document.getElementById('sticky');
-    const toggleSticky = () => {
-      sticky.classList.toggle('hide', window.scrollY < 120);
-    };
-    window.addEventListener('scroll', toggleSticky, {passive:true});
-    toggleSticky();
-
-    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
   </script>
 </body>
 </html>

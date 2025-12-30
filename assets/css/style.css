@@ -75,7 +75,7 @@ body{
 .hero__sub{
   margin: 14px auto 0;
   max-width: 720px;
-  font-size: 80px;
+  font-size: 20px;
   line-height: 1.6;
   color: rgba(255,255,255,.9);
   font-weight: 600;
@@ -276,6 +276,7 @@ body{
   .hero{ min-height: 540px; }
   .btn--xl{ min-width: auto; width: 92vw; }
 }
+
 
 
 

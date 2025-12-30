@@ -37,10 +37,29 @@ body{
   text-transform: uppercase;
 }
 .top-alert__inner{
-  padding: 12px 0;
-  text-align: center;
-  font-size: 26px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
 }
+
+.top-alert__left{
+  display:flex;
+  align-items:center;
+}
+
+.top-logo{
+  height:28px;        /* small & clean */
+  width:auto;
+  display:block;
+}
+
+@media (max-width: 520px){
+  .top-logo{
+    height:22px;
+  }
+}
+
 .top-alert strong{ font-weight: 900; }
 
 .hero{
@@ -276,6 +295,7 @@ body{
   .hero{ min-height: 540px; }
   .btn--xl{ min-width: auto; width: 92vw; }
 }
+
 
 
 

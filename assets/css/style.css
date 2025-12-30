@@ -39,7 +39,7 @@ body{
 .top-alert__inner{
   padding: 12px 0;
   text-align: center;
-  font-size: 13px;
+  font-size: 26px;
 }
 .top-alert strong{ font-weight: 900; }
 
@@ -276,3 +276,4 @@ body{
   .hero{ min-height: 540px; }
   .btn--xl{ min-width: auto; width: 92vw; }
 }
+

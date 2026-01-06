@@ -302,9 +302,10 @@ body{
   list-style: none;
   padding: 0;
   margin: 0;
-  max-width: 760px;
+  max-width: 560px;
   margin-left: auto;
   margin-right: auto;
+  background-color: #f4f6f8;
 }
 
 .checklist__item{
@@ -335,6 +336,7 @@ body{
   height: 22px;
   display: block;
 }
+
 
 
 

@@ -297,6 +297,45 @@ body{
   .btn--xl{ min-width: auto; width: 92vw; }
 }
 
+/* Qualification Checklist */
+.checklist{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.checklist__item{
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 18px; /* slightly smaller than headline, larger than body */
+  font-weight: 600;
+  line-height: 1.4;
+  padding: 10px 0;
+  text-align: left; /* keep left-aligned */
+}
+
+.checklist__icon{
+  flex: 0 0 auto;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #16a34a; /* green check */
+  margin-top: 2px;
+}
+
+.checklist__icon svg{
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
 
 
 

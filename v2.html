@@ -41,7 +41,7 @@
       </div>
 
       <h1 class="hero__title">
-        Avoid <span class="t-red">$3,000+</span> Repair Bills 
+        Avoid <span class="t-red">$3,000+</span> Repair Bills
         <span class="t-green">for Less than $2/day</span> with this 2026 Home Warranty Program
       </h1>
 
@@ -70,7 +70,7 @@
   </section>
 
   <!-- POPUP MODAL (NO X, CENTERED, UNIFORM BUTTONS) -->
-  <div id="hwQuizModal" class="hw-modal">
+  <div id="hwQuizModal" class="hw-modal" aria-hidden="true">
     <div class="hw-modal__overlay"></div>
 
     <div class="hw-modal__panel">
@@ -82,31 +82,32 @@
       <div class="hw-step" data-step="1">
         <p class="hw-q">Are you a homeowner?</p>
         <div class="hw-actions">
-          <button class="hw-btn" data-answer="homeowner" data-value="Yes">YES</button>
-          <button class="hw-btn" data-answer="homeowner" data-value="No">NO</button>
+          <button class="hw-btn" type="button" data-answer="homeowner" data-value="Yes">YES</button>
+          <button class="hw-btn" type="button" data-answer="homeowner" data-value="No">NO</button>
         </div>
       </div>
 
-      <!-- STOPPER -->
+      <!-- STOPPER (updated message + OK button closes modal) -->
       <div class="hw-step" data-step="stopper" hidden>
-        <p class="hw-q">Sorry, this offer is only available for homeowners.</p>
+        <p class="hw-q">Sorry, you’re not qualified.</p>
+        <p class="hw-sub">This offer is only available to homeowners.</p>
         <div class="hw-actions">
-          <a class="hw-btn" href="https://quickflarehit.com/cf/click">CONTINUE</a>
+          <button class="hw-btn" type="button" id="hwCloseBtn">OK</button>
         </div>
       </div>
 
       <!-- STEP 2 -->
       <div class="hw-step" data-step="2" hidden>
-        <p class="hw-q">Do you already have Home Warranty?</p>
+        <p class="hw-q">Do you already have a home warranty?</p>
         <div class="hw-actions">
-          <button class="hw-btn" data-answer="hasWarranty" data-value="Yes">YES</button>
-          <button class="hw-btn" data-answer="hasWarranty" data-value="No">NO</button>
+          <button class="hw-btn" type="button" data-answer="hasWarranty" data-value="Yes">YES</button>
+          <button class="hw-btn" type="button" data-answer="hasWarranty" data-value="No">NO</button>
         </div>
       </div>
 
       <!-- FINAL STEP (ZIP BUTTON ONLY) -->
       <div class="hw-step" data-step="3" hidden>
-        <p class="hw-q">Check Available Deals in Your Area</p>
+        <p class="hw-q">Check available deals in your area</p>
         <div class="hw-actions">
           <a class="hw-btn" href="https://quickflarehit.com/cf/click">
             ENTER YOUR ZIP CODE
@@ -163,6 +164,16 @@
       line-height: 1.4;
     }
 
+    /* SUBTEXT for stopper */
+    .hw-sub {
+      margin: -10px 0 18px;
+      font-size: 16px;
+      font-weight: 600;
+      opacity: 0.85;
+      text-align: center;
+      line-height: 1.4;
+    }
+
     /* STACK BUTTONS CENTER */
     .hw-actions {
       display: flex;
@@ -171,7 +182,7 @@
       align-items: center;
     }
 
-    /* UNIFORM RED PILL BUTTON (MATCHES YOUR SCREENSHOT) */
+    /* UNIFORM RED PILL BUTTON (MATCHES YOUR STYLE) */
     .hw-btn {
       display: block;
       width: 100%;
@@ -205,17 +216,25 @@
     @media (max-width: 480px) {
       .hw-q { font-size: 20px; }
       .hw-btn { font-size: 18px; padding: 18px 22px; }
+      .hw-sub { font-size: 14px; }
     }
   </style>
 
   <script>
     (function () {
       const modal = document.getElementById("hwQuizModal");
+      const overlay = modal.querySelector(".hw-modal__overlay");
 
       function openModal(e) {
         e.preventDefault();
         modal.classList.add("is-open");
+        modal.setAttribute("aria-hidden", "false");
         showStep(1);
+      }
+
+      function closeModal() {
+        modal.classList.remove("is-open");
+        modal.setAttribute("aria-hidden", "true");
       }
 
       function showStep(step) {
@@ -228,6 +247,12 @@
       document.querySelectorAll(".js-open-quiz").forEach(btn => {
         btn.addEventListener("click", openModal);
       });
+
+      // Close on overlay click
+      overlay.addEventListener("click", closeModal);
+
+      // OK button closes the modal on stopper
+      document.getElementById("hwCloseBtn")?.addEventListener("click", closeModal);
 
       // Handle answers
       modal.addEventListener("click", (e) => {
@@ -249,8 +274,12 @@
           showStep(3);
         }
       });
+
+      // Close on ESC
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && modal.classList.contains("is-open")) closeModal();
+      });
     })();
   </script>
 </body>
 </html>
-

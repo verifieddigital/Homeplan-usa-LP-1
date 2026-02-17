@@ -53,8 +53,8 @@
       </h1>
 
       <div class="hero__cta">
-        <!-- changed to open popup instead of direct link -->
-        <a class="btn btn--xl js-open-quiz" href="https://quickflarehit.com/cf/click" target="_blank" rel="noopener">
+        <!-- Opens popup (no direct redirect) -->
+        <a class="btn btn--xl js-open-quiz" href="https://quickflarehit.com/cf/click" target="_self" rel="noopener">
           ENTER YOUR ZIP CODE
         </a>
       </div>
@@ -96,8 +96,8 @@
       </ul>
 
       <div class="center mt-22">
-        <!-- changed to open popup instead of direct link -->
-        <a class="btn btn--lg js-open-quiz" href="https://quickflarehit.com/cf/click" target="_blank" rel="noopener">
+        <!-- Opens popup (no direct redirect) -->
+        <a class="btn btn--lg js-open-quiz" href="https://quickflarehit.com/cf/click" target="_self" rel="noopener">
           Check Your Zip Code Now <span class="btn__arrow">→</span>
         </a>
       </div>
@@ -240,8 +240,8 @@
       </p>
 
       <div class="center mt-22">
-        <!-- changed to open popup instead of direct link -->
-        <a class="btn btn--lg js-open-quiz" href="https://quickflarehit.com/cf/click" target="_blank" rel="noopener">
+        <!-- Opens popup (no direct redirect) -->
+        <a class="btn btn--lg js-open-quiz" href="https://quickflarehit.com/cf/click" target="_self" rel="noopener">
           Check Your Zip Code Now <span class="btn__arrow">→</span>
         </a>
       </div>
@@ -276,21 +276,20 @@
 
       <!-- Step 2 -->
       <div class="hw-step" data-step="2" hidden>
-        <p class="hw-q">Q2: Do you already have a Home Warranty?</p>
+        <p class="hw-q">Q2: Do you already have Home Warranty?</p>
         <div class="hw-actions">
           <button type="button" class="hw-btn" data-answer="hasWarranty" data-value="Yes">Yes</button>
           <button type="button" class="hw-btn" data-answer="hasWarranty" data-value="No">No</button>
         </div>
       </div>
 
-      <!-- Step 3 -->
+      <!-- Step 3 (FINAL: BUTTON ONLY, matches your screenshot style) -->
       <div class="hw-step" data-step="3" hidden>
-        <p class="hw-q">Q3: Enter your Zip code</p>
-        <div class="hw-zip">
-          <input id="hwZip" type="text" inputmode="numeric" maxlength="10" placeholder="e.g. 90210" />
-          <button id="hwZipSubmit" type="button" class="hw-btn">Continue</button>
+        <div class="hw-final">
+          <a class="hw-zip-btn" href="https://quickflarehit.com/cf/click" target="_self" rel="noopener">
+            ENTER YOUR ZIP CODE
+          </a>
         </div>
-        <p id="hwZipErr" class="hw-err" hidden>Please enter a valid ZIP code.</p>
       </div>
     </div>
   </div>
@@ -299,45 +298,84 @@
     .hw-modal { position: fixed; inset: 0; display: none; z-index: 9999; }
     .hw-modal.is-open { display: block; }
     .hw-modal__overlay { position: absolute; inset: 0; background: rgba(0,0,0,.55); }
+
     .hw-modal__panel {
       position: relative;
-      width: min(520px, calc(100% - 32px));
+      width: min(560px, calc(100% - 32px));
       margin: 8vh auto;
       background: #fff;
-      border-radius: 14px;
-      padding: 18px 18px 16px;
+      border-radius: 16px;
+      padding: 18px 18px 20px;
       box-shadow: 0 20px 60px rgba(0,0,0,.25);
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     }
-    .hw-modal__close { position: absolute; top: 10px; right: 12px; border: 0; background: transparent; font-size: 22px; cursor: pointer; }
+
+    .hw-modal__close {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      border: 0;
+      background: transparent;
+      font-size: 24px;
+      cursor: pointer;
+      line-height: 1;
+    }
+
     .hw-title { margin: 0 0 12px; font-size: 18px; line-height: 1.3; }
-    .hw-q { margin: 10px 0 12px; font-size: 16px; }
+    .hw-q { margin: 10px 0 12px; font-size: 16px; font-weight: 600; }
+
     .hw-actions { display: flex; gap: 10px; flex-wrap: wrap; }
     .hw-btn {
-      border: 0; cursor: pointer; padding: 10px 14px;
-      border-radius: 10px; background: #111; color: #fff; font-weight: 600;
+      border: 0;
+      cursor: pointer;
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: #111;
+      color: #fff;
+      font-weight: 700;
     }
     .hw-btn--ghost { background: #f2f2f2; color: #111; }
-    .hw-zip { display: flex; gap: 10px; }
-    #hwZip { flex: 1; padding: 10px 12px; border-radius: 10px; border: 1px solid #d7d7d7; }
-    .hw-err { color: #b00020; margin: 10px 0 0; font-size: 13px; }
+
+    /* FINAL BUTTON STYLE (matches your screenshot) */
+    .hw-final { padding-top: 6px; }
+    .hw-zip-btn{
+      display: block;
+      width: 100%;
+      max-width: 520px;
+      margin: 6px auto 0;
+      text-align: center;
+      text-decoration: none;
+      background: #ff2b2b;
+      color: #fff;
+      font-weight: 800;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      padding: 18px 22px;
+      border-radius: 999px;
+      box-shadow: 0 12px 30px rgba(255, 43, 43, .35);
+      transition: transform .08s ease, box-shadow .08s ease, filter .08s ease;
+    }
+    .hw-zip-btn:hover{
+      filter: brightness(1.02);
+      box-shadow: 0 14px 34px rgba(255, 43, 43, .42);
+    }
+    .hw-zip-btn:active{
+      transform: translateY(1px);
+      box-shadow: 0 10px 26px rgba(255, 43, 43, .32);
+    }
+
+    @media (max-width: 420px){
+      .hw-zip-btn{ padding: 16px 18px; }
+    }
   </style>
 
   <script>
     (function () {
       const modal = document.getElementById("hwQuizModal");
-      const zipInput = document.getElementById("hwZip");
-      const zipSubmit = document.getElementById("hwZipSubmit");
-      const zipErr = document.getElementById("hwZipErr");
-
-      // Use current CTA button URL as redirect base (keeps your existing link)
-      const firstCta = document.querySelector('.js-open-quiz');
-      const baseUrl = (firstCta && firstCta.getAttribute('href')) ? firstCta.getAttribute('href') : "https://quickflarehit.com/cf/click";
 
       const state = {
         homeowner: null,
-        hasWarranty: null,
-        zip: null
+        hasWarranty: null
       };
 
       function openModal(e) {
@@ -345,8 +383,6 @@
         modal.classList.add("is-open");
         modal.setAttribute("aria-hidden", "false");
         showStep(1);
-        if (zipInput) zipInput.value = "";
-        if (zipErr) zipErr.hidden = true;
       }
 
       function closeModal() {
@@ -360,16 +396,12 @@
         });
       }
 
-      function isValidZip(zip) {
-        return /^\d{5}(-\d{4})?$/.test((zip || "").trim());
-      }
-
-      // Attach modal to all CTA buttons
+      // Open modal from any CTA
       document.querySelectorAll(".js-open-quiz").forEach((el) => {
         el.addEventListener("click", openModal);
       });
 
-      // Handle clicks inside modal
+      // Handle modal buttons
       modal.addEventListener("click", (e) => {
         const close = e.target.closest('[data-close="true"]');
         if (close) return closeModal();
@@ -389,28 +421,6 @@
         if (key === "hasWarranty") {
           return showStep(3);
         }
-      });
-
-      // ZIP submit -> redirect with answers appended
-      zipSubmit.addEventListener("click", () => {
-        const zip = (zipInput.value || "").trim();
-
-        if (!isValidZip(zip)) {
-          zipErr.hidden = false;
-          return;
-        }
-
-        zipErr.hidden = true;
-        state.zip = zip;
-
-        const params = new URLSearchParams({
-          zip: state.zip || "",
-          homeowner: state.homeowner || "",
-          has_warranty: state.hasWarranty || ""
-        });
-
-        const joiner = baseUrl.includes("?") ? "&" : "?";
-        window.location.href = baseUrl + joiner + params.toString();
       });
 
       // Close on ESC

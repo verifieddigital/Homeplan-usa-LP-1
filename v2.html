@@ -43,17 +43,18 @@
       <h1 class="hero__title">
         Avoid <span class="t-red">$3,000+</span> Repair Bills
         <span class="t-green">for Less than $2/day</span> with this 2026 Home Warranty Program
-      </h1><BR>
+      </h1><br>
       <h3 class="short_question">Answer a few short questions to find the Best Home Warranty Deal in your area.</h3>
 
       <div class="hero__cta">
-        <a class="btn btn--xl js-open-quiz" href="https://quickflarehit.com/cf/click">
+        <a class="btn1a btn--xl js-open-quiz" href="https://quickflarehit.com/cf/click">
           START
         </a>
       </div>
     </div>
   </header>
- <!-- Qualification Checklist -->
+
+  <!-- Qualification Checklist -->
   <section class="section section--light" id="qualification">
     <div class="container">
       <h2 class="h2">See If You Qualify for This Home Warranty Program</h2>
@@ -141,7 +142,7 @@
               <path d="M6 4h12v16H6V4Z" stroke="currentColor" stroke-width="1.8"/>
               <path d="M9 7h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
               <path d="M9 12h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-              <path d="M9 17h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              <path d="M9 15h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
             </svg>
           </div>
           <div class="icon-card__title">Kitchen Appliances</div>
@@ -221,6 +222,7 @@
       </div>
     </div>
   </section>
+
   <!-- Final CTA -->
   <section class="section section--white" id="final">
     <div class="container">
@@ -242,7 +244,7 @@
     <div class="hw-modal__overlay"></div>
 
     <div class="hw-modal__panel">
-      <h2 class="hw-title">
+      <h2 class="hw-title" id="hwTitle">
         Answer the following questions to find the best Home Warranty Deal:
       </h2>
 
@@ -255,7 +257,7 @@
         </div>
       </div>
 
-      <!-- STOPPER (updated message + OK button closes modal) -->
+      <!-- STOPPER (title will be hidden via JS on this step) -->
       <div class="hw-step" data-step="stopper" hidden>
         <p class="hw-q">Sorry, you’re not qualified.</p>
         <p class="hw-sub">This offer is only available to homeowners.</p>
@@ -286,6 +288,19 @@
   </div>
 
   <style>
+    .btn1a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, .04);
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 40px;
+    }
+
     /* MODAL OVERLAY */
     .hw-modal {
       position: fixed;
@@ -393,6 +408,7 @@
     (function () {
       const modal = document.getElementById("hwQuizModal");
       const overlay = modal.querySelector(".hw-modal__overlay");
+      const title = document.getElementById("hwTitle");
 
       function openModal(e) {
         e.preventDefault();
@@ -404,12 +420,23 @@
       function closeModal() {
         modal.classList.remove("is-open");
         modal.setAttribute("aria-hidden", "true");
+        // Reset title so next open is normal
+        if (title) title.style.display = "block";
       }
 
       function showStep(step) {
         document.querySelectorAll(".hw-step").forEach(el => {
           el.hidden = el.getAttribute("data-step") !== String(step);
         });
+
+        // Hide title ONLY on stopper (not qualified)
+        if (title) {
+          if (String(step) === "stopper") {
+            title.style.display = "none";
+          } else {
+            title.style.display = "block";
+          }
+        }
       }
 
       // Open popup from ALL CTA buttons
@@ -452,4 +479,3 @@
   </script>
 </body>
 </html>
-

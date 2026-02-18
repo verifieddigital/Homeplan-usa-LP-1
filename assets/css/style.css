@@ -263,6 +263,7 @@ body{
    Buttons
 ===================== */
 .btn{
+  font-size: 40px;
   border: none;
   cursor: pointer;
   background: var(--red);
@@ -292,6 +293,7 @@ body{
   .hero__sub{ font-size: 15px; }
   .checklist__item{ font-size: 16px; }
 }
+
 
 
 
